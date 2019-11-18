@@ -1,0 +1,2 @@
+# blog
+www.samimyaquby.com
