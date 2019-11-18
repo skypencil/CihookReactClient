@@ -1,0 +1,35 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "www.samimyaquby.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skypencil/blog.git"
+  },
+  "keywords": [
+    "blog",
+    "samim",
+    "yaquby",
+    "gatsby",
+    "react",
+    "tooti",
+    "dari",
+    "app"
+  ],
+  "author": "Samim Yaquby",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skypencil/blog/issues"
+  },
+  "homepage": "https://github.com/skypencil/blog#readme",
+  "dependencies": {
+    "gatsby": "^2.17.15",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
