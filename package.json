@@ -1,32 +1,31 @@
 {
-  "name": "blog",
-  "version": "1.0.0",
-  "description": "www.samimyaquby.com",
-  "main": "index.js",
-  "scripts": {
-    "format": "prettier --write \"src/**/*.{js, jsx, css, json}\"",
-    "format:check": "prettier --list-different \"src/**/*.{js, jsx, css, json}\"",
-    "lint": "eslint \"**/* .{js, jsx}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/skypencil/blog.git"
-  },
-  "author": "Samim Yaquby",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/skypencil/blog/issues"
-  },
-  "homepage": "https://github.com/skypencil/blog#readme",
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.2.0"
   },
-  "devDependencies": {
-    "eslint": "^6.6.0",
-    "eslint-config-prettier": "^6.6.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "prettier": "^1.19.1"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
