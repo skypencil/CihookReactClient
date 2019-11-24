@@ -4,7 +4,7 @@ import Waiting from "./Waiting/Waiting"
 import Profile from "./Profile/Profile";
 import Authentication from "./Authentication/Authentication";
 
-import AuthAPI from "../classes/network/authAPI";
+import {getUser} from "../classes/network/networkCall";
 import User from "../classes/user/user"
 import {hasData} from "../classes/network/dataValidation"
 
@@ -20,11 +20,11 @@ class Welcome extends React.Component {
 
     callForUser = () => {
         // logged in
-        // const apiCall = new AuthAPI('https://reqres.in/api/users/2');
+        const url = 'https://reqres.in/api/users/2';
         // not found
-        const apiCall = new AuthAPI('https://reqres.in/api/users/23');
+        // const url = 'https://reqres.in/api/users/23';
 
-        return apiCall.getUser()
+        return getUser(url)
             .then((json) => {
                 if(hasData(json)){
                     this.hasDataHandler(json);

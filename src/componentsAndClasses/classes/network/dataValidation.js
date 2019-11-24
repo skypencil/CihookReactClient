@@ -1,7 +1,11 @@
-export const hasData = (data) => {
-    if(Object.keys(data).length > 0) {
+const hasData = (json) => {
+    if(Object.keys(json).length > 0 && (typeof json) === "object") {
         return true;
     } else {
         return false;
     }
+}
+
+module.exports = {
+    hasData: hasData
 }
