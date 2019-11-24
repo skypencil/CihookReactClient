@@ -6,7 +6,7 @@ class AuthAPI {
     }
     
     getUser() {
-            return fetch(this.url);  
+            return fetch(this.url).then(response => response.json());  
     }    
 }
 

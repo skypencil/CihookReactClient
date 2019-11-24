@@ -20,21 +20,28 @@ class Welcome extends React.Component {
 
     callForUser = () => {
         // logged in
-        const apiCall = new AuthAPI('https://reqres.in/api/users/2');
-
+        // const apiCall = new AuthAPI('https://reqres.in/api/users/2');
         // not found
-        // const apiCall = new AuthAPI('https://reqres.in/api/users/23');
+        const apiCall = new AuthAPI('https://reqres.in/api/users/23');
 
-        apiCall.getUser().then(response => response.json())
-        .then((json) => {
-            if(hasData(json)){
-                let data = json.data;
-                let userObject = new User(data.email, data.id, data.first_name, data.last_name, data.avatar)
-                this.setState({userObject: userObject, userLoggedIn: userObject.isLoggedIn(), callsMade: this.state.callsMade + 1});
-            } else {
-                this.setState({userLoggedIn: false});
-            }
-        })
+        return apiCall.getUser()
+            .then((json) => {
+                if(hasData(json)){
+                    this.hasDataHandler(json);
+                } else {
+                    this.noDataHandler();
+                }
+            })
+    }
+
+    hasDataHandler = (json) => {
+        let data = json.data;
+        let userObject = new User(data.email, data.id, data.first_name, data.last_name, data.avatar)
+        this.setState({userObject: userObject, userLoggedIn: userObject.isLoggedIn(), callsMade: this.state.callsMade + 1});
+    }
+
+    noDataHandler = () => {
+        this.setState({userLoggedIn: false});
     }
 
     componentDidMount() {
