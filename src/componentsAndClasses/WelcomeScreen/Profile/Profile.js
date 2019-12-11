@@ -1,5 +1,5 @@
 import React from 'react';
-import firebase from '../../../firebase';
+import firebase from '../../classes/firebase';
 
 const Profile = props => {
     const { first_name, id, email, avatar } = props.userObject;
@@ -11,7 +11,7 @@ const Profile = props => {
                 props.noDataHandler();
             })
             .catch(function(error) {
-                // An error happened.s
+                console.log(error);
             });
     };
 

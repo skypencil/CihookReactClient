@@ -7,7 +7,7 @@ import Authentication from './Authentication/Authentication';
 import { getUser } from '../classes/network/networkCall';
 import User from '../classes/user/user';
 import { hasData } from '../classes/network/dataValidation';
-import { auth } from '../../firebase';
+import { auth } from '../classes/firebase';
 
 class Welcome extends React.Component {
     constructor() {
@@ -16,6 +16,11 @@ class Welcome extends React.Component {
             userObject: null,
             userLoggedIn: null,
             callsMade: 0,
+            error: {
+                hasError: null,
+                errorCode: null,
+                errorMessage: null,
+            },
         };
     }
 
@@ -36,22 +41,41 @@ class Welcome extends React.Component {
 
     hasDataHandler = json => {
         let data = json;
-        let userObject = new User(
-            data.email,
-            data.uid,
-            data.displayName,
-            data.displayName,
-            data.photoURL
-        );
-        this.setState({
-            userObject: userObject,
-            userLoggedIn: userObject.isLoggedIn(),
-            callsMade: this.state.callsMade + 1,
-        });
+        if (data === null) {
+            return;
+        } else {
+            let userObject = new User(
+                data.email,
+                data.uid,
+                data.displayName,
+                data.displayName,
+                data.photoURL
+            );
+
+            this.setState({
+                userObject: userObject,
+                userLoggedIn: userObject.isLoggedIn(),
+                callsMade: this.state.callsMade + 1,
+            });
+        }
     };
 
     noDataHandler = () => {
         this.setState({ userLoggedIn: false });
+    };
+
+    errorHandler = error => {
+        console.log(error.code);
+        if (error.code === 'auth/account-exists-with-different-credential') {
+            this.setState({
+                error: {
+                    hasError: true,
+                    errorCode: error.code,
+                    errorMessage: error.message,
+                    errorEmail: error.email,
+                },
+            });
+        }
     };
 
     componentDidMount() {
@@ -72,7 +96,13 @@ class Welcome extends React.Component {
                 />
             );
         } else if (this.state.userLoggedIn === false) {
-            return <Authentication />;
+            return (
+                <Authentication
+                    userHasAnotherAccount={this.state.userHasAnotherAccount}
+                    errorHandler={this.errorHandler}
+                    error={this.state.error}
+                />
+            );
         }
     };
 

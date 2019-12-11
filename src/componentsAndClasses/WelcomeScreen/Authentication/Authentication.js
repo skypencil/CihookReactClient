@@ -1,25 +1,71 @@
-import React from "react";
-import {auth, googleAuthProvider, facebookAuthProvider, emailAuthProvider } from "../../../firebase";
+import React from 'react';
+import {
+    auth,
+    googleAuthProvider,
+    facebookAuthProvider,
+} from '../../classes/firebase';
 
-const Authentication = () => {
-    const loginWithHandler = (provider) => {
-        auth.signInWithPopup(provider).then(() => {
-          console.log("user logged in with", provider.providerId)  
-        }).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const email = error.email;
-            console.log("this is the error object: ",error)
-        })
-    }
+import EmailAndPass from './providers/EmailAndPass.js';
 
-    return( 
-    <div>
-        <button type="button" onClick= {() => {loginWithHandler(facebookAuthProvider)}}>Sign in with Facebook</button>
-        <button type="button" onClick= {() => {loginWithHandler(googleAuthProvider)}}>Sign in with Google</button>
-        <button type="button" onClick= {() => {loginWithHandler(emailAuthProvider)}}>Sign in with email</button>
-    </div>
-     )
-}
+const Authentication = ({ error, errorHandler }) => {
+    const loginWithProviderHandler = provider => {
+        auth.signInWithPopup(provider)
+            .then(() => {
+                console.log('user logged in with', provider.providerId);
+            })
+            .catch(error => {
+                console.log(error);
+                errorHandler(error);
+            });
+    };
+
+    const errorMessageHandler = error => {
+        console.log('error at error message handler: ', error);
+        if (
+            error.hasError &&
+            error.errorCode === 'auth/account-exists-with-different-credential'
+        ) {
+            return (
+                <div>
+                    <p className="font-weight-normal text-danger">
+                        {error.errorMessage}
+                    </p>
+                    <p className="font-weight-normal text-danger">
+                        {error.errorEmail}
+                    </p>
+                </div>
+            );
+        } else {
+            return <div></div>;
+        }
+    };
+
+    return (
+        <div>
+            <div className="d-flex flex-column align-items-md-center">
+                <button
+                    type="button"
+                    onClick={() => {
+                        loginWithProviderHandler(facebookAuthProvider);
+                    }}
+                >
+                    Sign in with Facebook
+                </button>
+                <button
+                    type="button"
+                    onClick={() => {
+                        loginWithProviderHandler(googleAuthProvider);
+                    }}
+                >
+                    Sign in with Google
+                </button>
+            </div>
+            <EmailAndPass />
+            <div>
+                <div>{errorMessageHandler(error)}</div>
+            </div>
+        </div>
+    );
+};
 
 export default Authentication;
