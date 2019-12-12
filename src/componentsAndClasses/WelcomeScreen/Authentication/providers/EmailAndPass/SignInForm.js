@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
-import { auth } from '../../../classes/firebase';
+import { auth } from '../../../../classes/firebase';
 
-const EmailAndPass = () => {
-    const signUpWithEmail = (email, password) => {
+const SignInForm = () => {
+    const signInWithEmail = (email, password) => {
         console.log('email: ', email);
         console.log('password:', password);
-        auth.createUserWithEmailAndPassword(email, password)
-            .then(data => {
-                console.log('success: ', data);
-            })
-            .catch(error => {
+        auth()
+            .signInWithEmailAndPassword(email, password)
+            .catch(function(error) {
                 // Handle Errors here.
-                // var errorCode = error.code;
-                // var errorMessage = error.message;
+                var errorCode = error.code;
+                var errorMessage = error.message;
                 // ...
-                console.log('failure: ', error);
             });
     };
 
@@ -67,14 +64,14 @@ const EmailAndPass = () => {
                     className="btn btn-primary"
                     onClick={e => {
                         e.preventDefault();
-                        signUpWithEmail(email, password);
+                        signInWithEmail(email, password);
                     }}
                 >
-                    signup
+                    sign in
                 </button>
             </form>
         </div>
     );
 };
 
-export default EmailAndPass;
+export default SignInForm;

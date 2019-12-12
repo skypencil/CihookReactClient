@@ -5,7 +5,7 @@ import {
     facebookAuthProvider,
 } from '../../classes/firebase';
 
-import EmailAndPass from './providers/EmailAndPass.js';
+import EmailAndPass from './providers/EmailAndPass/EmailAndPass.js';
 
 const Authentication = ({ error, errorHandler }) => {
     const loginWithProviderHandler = provider => {
