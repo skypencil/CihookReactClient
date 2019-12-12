@@ -1,10 +1,10 @@
 import React from 'react';
-import { auth } from '../../../../classes/firebase';
+// import { auth } from '../../../../classes/firebase';
 
-import SignUpForm from '../EmailAndPass/SignUpForm';
+import SignInForm from '../EmailAndPass/SignInForm';
 
 const EmailAndPass = () => {
-    return <SignUpForm />;
+    return <SignInForm />;
 };
 
 export default EmailAndPass;

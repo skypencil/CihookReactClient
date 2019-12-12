@@ -1,45 +1,21 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+
+import { AppContext } from '../../App';
 
 import Waiting from './Waiting/Waiting';
 import Profile from './Profile/Profile';
 import Authentication from './Authentication/Authentication';
+import SignUpForm from './SignUpForm/SignUpForm';
 
 import { getUser } from '../classes/network/networkCall';
 import User from '../classes/user/user';
 import { hasData } from '../classes/network/dataValidation';
 import { auth } from '../classes/firebase';
 
-class Welcome extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            userObject: null,
-            userLoggedIn: null,
-            callsMade: 0,
-            error: {
-                hasError: null,
-                errorCode: null,
-                errorMessage: null,
-            },
-        };
-    }
+const Welcome = () => {
+    const store = useContext(AppContext);
 
-    callForUser = () => {
-        // logged in
-        // const url = 'https://reqres.in/api/users/2';
-        // not found
-        const url = 'https://reqres.in/api/users/23';
-
-        return getUser(url).then(json => {
-            if (hasData(json)) {
-                this.hasDataHandler(json);
-            } else {
-                this.noDataHandler();
-            }
-        });
-    };
-
-    hasDataHandler = json => {
+    const hasDataHandler = json => {
         let data = json;
         if (data === null) {
             return;
@@ -52,63 +28,79 @@ class Welcome extends React.Component {
                 data.photoURL
             );
 
-            this.setState({
-                userObject: userObject,
-                userLoggedIn: userObject.isLoggedIn(),
-                callsMade: this.state.callsMade + 1,
-            });
+            store.userObject.set(userObject);
+            store.userLoggedIn.set(userObject.isLoggedIn());
+            store.callsMade.set(store.callsMade.get + 1);
         }
     };
 
-    noDataHandler = () => {
-        this.setState({ userLoggedIn: false });
-    };
+    const callForUser = () => {
+        // logged in
+        // const url = 'https://reqres.in/api/users/2';
+        // not found
+        const url = 'https://reqres.in/api/users/23';
 
-    errorHandler = error => {
-        console.log(error.code);
-        if (error.code === 'auth/account-exists-with-different-credential') {
-            this.setState({
-                error: {
-                    hasError: true,
-                    errorCode: error.code,
-                    errorMessage: error.message,
-                    errorEmail: error.email,
-                },
-            });
-        }
-    };
-
-    componentDidMount() {
-        this.callForUser();
-        auth.onAuthStateChanged(userObject => {
-            this.hasDataHandler(userObject);
+        return getUser(url).then(json => {
+            if (hasData(json)) {
+                hasDataHandler(json);
+            } else {
+                noDataHandler();
+            }
         });
-    }
+    };
 
-    displayScreen = () => {
-        if (this.state.userLoggedIn === null) {
+    const noDataHandler = () => {
+        store.userLoggedIn.set(false);
+    };
+
+    const errorHandler = error => {
+        if (error.code === 'auth/account-exists-with-different-credential') {
+            store.error.set({
+                hasError: true,
+                errorCode: error.code,
+                errorMessage: error.message,
+                errorEmail: error.email,
+            });
+        }
+    };
+
+    const displayScreen = () => {
+        if (store.userLoggedIn.get === null) {
             return <Waiting />;
-        } else if (this.state.userLoggedIn === true) {
+        } else if (store.userLoggedIn.get === true) {
             return (
                 <Profile
-                    userObject={this.state.userObject}
-                    noDataHandler={this.noDataHandler}
+                    userObject={store.userObject.get}
+                    noDataHandler={noDataHandler}
                 />
             );
-        } else if (this.state.userLoggedIn === false) {
+        } else if (store.userLoggedIn.get === false) {
             return (
                 <Authentication
-                    userHasAnotherAccount={this.state.userHasAnotherAccount}
-                    errorHandler={this.errorHandler}
-                    error={this.state.error}
+                    errorHandler={errorHandler}
+                    error={store.error.get}
+                />
+            );
+        } else if (store.userLoggedIn.get === 'wantsEmailPassSignup') {
+            return (
+                <SignUpForm
+                    errorHandler={errorHandler}
+                    error={store.error.get}
                 />
             );
         }
     };
 
-    render() {
-        return this.displayScreen();
-    }
-}
+    useEffect(() => {
+        // find a way to check for user from the get go
+        callForUser();
+
+        auth.onAuthStateChanged(userObject => {
+            hasDataHandler(userObject);
+        });
+    }, []);
+
+    return displayScreen();
+};
 
 export default Welcome;

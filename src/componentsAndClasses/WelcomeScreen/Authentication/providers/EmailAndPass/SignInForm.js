@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { auth } from '../../../../classes/firebase';
 
+import { AppContext } from '../../../../../App';
+
 const SignInForm = () => {
+    const store = useContext(AppContext);
+
+    const redirectToSignUpPage = () => {
+        store.userLoggedIn.set('wantsEmailPassSignup');
+    };
+
     const signInWithEmail = (email, password) => {
         console.log('email: ', email);
         console.log('password:', password);
@@ -69,6 +77,18 @@ const SignInForm = () => {
                 >
                     sign in
                 </button>
+                <div>
+                    <button
+                        type="button"
+                        className="btn btn-link"
+                        onClick={e => {
+                            e.preventDefault();
+                            redirectToSignUpPage();
+                        }}
+                    >
+                        sign up
+                    </button>
+                </div>
             </form>
         </div>
     );

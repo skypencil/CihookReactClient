@@ -1,21 +1,10 @@
-import React, { useState, useContext, createContext } from 'react';
+import React, { useState, createContext } from 'react';
 import WelcomScreen from './componentsAndClasses/WelcomeScreen/WelcomeScreen';
 import './App.css';
 
-const AppContext = createContext({});
+export const AppContext = createContext({});
 
-// this.state = {
-//     userObject: null,
-//     userLoggedIn: null,
-//     callsMade: 0,
-//     error: {
-//         hasError: null,
-//         errorCode: null,
-//         errorMessage: null,
-//     },
-// };
-
-function App() {
+export const App = () => {
     const [userObject, setUserObject] = useState(null);
     const [userLoggedIn, setUserLoggedIn] = useState(null);
     const [callsMade, setCallsMade] = useState(0);
@@ -28,7 +17,7 @@ function App() {
     const store = {
         userObject: { get: userObject, set: setUserObject },
         userLoggedIn: { get: userLoggedIn, set: setUserLoggedIn },
-        callsmade: { get: callsMade, set: setCallsMade },
+        callsMade: { get: callsMade, set: setCallsMade },
         error: { get: error, set: setError },
     };
 
@@ -39,6 +28,4 @@ function App() {
             </AppContext.Provider>
         </div>
     );
-}
-
-export default App;
+};
