@@ -1,9 +1,8 @@
 import React from 'react';
-import {
-    auth,
-    googleAuthProvider,
-    facebookAuthProvider,
-} from '../../classes/firebase';
+import { auth } from '../../classes/firebase';
+
+import FacebookButton from './providers/Facebook/FacebookSigninOrSignup';
+import GoogleButton from './providers/Gmail/GoogleSigninOrSignup';
 
 import EmailAndPass from './providers/EmailAndPass/EmailAndPass.js';
 
@@ -41,24 +40,10 @@ const Authentication = ({ error, errorHandler }) => {
     };
 
     return (
-        <div>
+        <div className="mobile">
             <div className="d-flex flex-column align-items-md-center">
-                <button
-                    type="button"
-                    onClick={() => {
-                        loginWithProviderHandler(facebookAuthProvider);
-                    }}
-                >
-                    Sign in with Facebook
-                </button>
-                <button
-                    type="button"
-                    onClick={() => {
-                        loginWithProviderHandler(googleAuthProvider);
-                    }}
-                >
-                    Sign in with Google
-                </button>
+                <FacebookButton handler={loginWithProviderHandler} />
+                <GoogleButton handler={loginWithProviderHandler} />
             </div>
             <EmailAndPass />
             <div>
