@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+.icon {
+    width: auto;
+    height: 20px;
+}
+
 .test-border {
     border: 1px solid orange;
 }

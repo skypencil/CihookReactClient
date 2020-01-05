@@ -27,8 +27,12 @@ const SignInForm = () => {
     const [password, setPassword] = useState('');
 
     return (
-        <div>
-            <form>
+        <div className="d-flex justify-content-center">
+            <form
+                style={{
+                    width: '400px',
+                }}
+            >
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Email address</label>
                     <input
@@ -67,20 +71,28 @@ const SignInForm = () => {
                         Check me out
                     </label>
                 </div>
-                <button
-                    type="submit"
-                    className="btn btn-primary"
-                    onClick={e => {
-                        e.preventDefault();
-                        signInWithEmail(email, password);
-                    }}
-                >
-                    sign in
-                </button>
                 <div>
                     <button
+                        type="submit"
+                        className="border-0 rounded"
+                        style={{
+                            background: '#ddbb00',
+                            width: 330,
+                            color: 'white',
+                            margin: 2,
+                        }}
+                        onClick={e => {
+                            e.preventDefault();
+                            signInWithEmail(email, password);
+                        }}
+                    >
+                        sign in
+                    </button>
+
+                    <button
                         type="button"
-                        className="btn btn-link"
+                        className="border rounded"
+                        style={{ color: '#ddbb00' }}
                         onClick={e => {
                             e.preventDefault();
                             redirectToSignUpPage();

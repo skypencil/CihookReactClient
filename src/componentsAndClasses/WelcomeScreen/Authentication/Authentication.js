@@ -40,12 +40,16 @@ const Authentication = ({ error, errorHandler }) => {
     };
 
     return (
-        <div className="mobile">
-            <div className="d-flex flex-column align-items-md-center">
+        <div className="justify-content-center rounded border shadow-lg p-3 mb-5 bg-white rounded">
+            <div className="d-flex flex-column align-items-md-center justify-content-center">
                 <FacebookButton handler={loginWithProviderHandler} />
                 <GoogleButton handler={loginWithProviderHandler} />
             </div>
-            <EmailAndPass />
+
+            <div style={{ marginTop: 10 }}>
+                <EmailAndPass />
+            </div>
+
             <div>
                 <div>{errorMessageHandler(error)}</div>
             </div>
