@@ -2,10 +2,10 @@ import React, { useContext, useEffect } from 'react';
 
 import { AppContext } from '../../App';
 
-import Waiting from './Waiting/Waiting';
-import Profile from './Profile/Profile';
-import Authentication from './Authentication/Authentication';
-import SignUpForm from './SignUpForm/SignUpForm';
+import Waiting from '../Waiting/Waiting';
+import Profile from '../Profile/Profile';
+import Authentication from '../Authentication/Authentication';
+import SignUpForm from '../SignUpForm/SignUpForm';
 
 import { getUser } from '../classes/network/networkCall';
 import User from '../classes/user/user';
@@ -35,18 +35,14 @@ const Welcome = () => {
     };
 
     const callForUser = () => {
-        // logged in
-        // const url = 'https://reqres.in/api/users/2';
-        // not found
-        const url = 'https://reqres.in/api/users/23';
+        var user = auth.currentUser;
 
-        return getUser(url).then(json => {
-            if (hasData(json)) {
-                hasDataHandler(json);
-            } else {
-                noDataHandler();
-            }
-        });
+        if (user) {
+            //if there is a user, the app will automatically publish the page. No need to do anything here.
+            console.log('here');
+        } else {
+            store.userLoggedIn.set(false);
+        }
     };
 
     const noDataHandler = () => {
@@ -92,7 +88,8 @@ const Welcome = () => {
     };
 
     useEffect(() => {
-        // find a way to check for user from the get go
+        //onAuthStateChanged is triggered if there is a change in the status of auth. callForUser is a dumb function that does that.
+
         callForUser();
 
         auth.onAuthStateChanged(userObject => {

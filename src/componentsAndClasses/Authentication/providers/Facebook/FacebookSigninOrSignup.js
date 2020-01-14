@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import facebookLoginIcon from '../../../../../staticAssets/facebookLoginIcon.png';
+import facebookLoginIcon from '../../../../staticAssets/facebookLoginIcon.png';
 
-import { facebookAuthProvider } from '../../../../classes/firebase';
+import { facebookAuthProvider } from '../../../classes/firebase';
 
 const FacebookButton = ({ handler }) => {
     const [backgroundColor, setBackgroundColor] = useState('#white');

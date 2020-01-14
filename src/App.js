@@ -1,5 +1,5 @@
 import React, { useState, createContext } from 'react';
-import WelcomScreen from './componentsAndClasses/WelcomeScreen/WelcomeScreen';
+import Screen from './componentsAndClasses/Screen/Screen';
 import './App.css';
 
 export const AppContext = createContext({});
@@ -24,7 +24,7 @@ export const App = () => {
     return (
         <div className="container-fluid d-flex justify-content-center align-items-center full-height">
             <AppContext.Provider value={store}>
-                <WelcomScreen />
+                <Screen />
             </AppContext.Provider>
         </div>
     );

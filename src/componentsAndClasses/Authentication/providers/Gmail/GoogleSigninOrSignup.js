@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import googleLoginIcon from '../../../../../staticAssets/googleLoginIcon.png';
+import googleLoginIcon from '../../../../staticAssets/googleLoginIcon.png';
 
-import { googleAuthProvider } from '../../../../classes/firebase';
+import { googleAuthProvider } from '../../../classes/firebase';
 
 const GoogleButton = ({ handler }) => {
     const [backgroundColor, setBackgroundColor] = useState('#white');

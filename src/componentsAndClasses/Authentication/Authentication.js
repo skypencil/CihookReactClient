@@ -1,5 +1,5 @@
 import React from 'react';
-import { auth } from '../../classes/firebase';
+import { auth } from '../classes/firebase';
 
 import FacebookButton from './providers/Facebook/FacebookSigninOrSignup';
 import GoogleButton from './providers/Gmail/GoogleSigninOrSignup';
