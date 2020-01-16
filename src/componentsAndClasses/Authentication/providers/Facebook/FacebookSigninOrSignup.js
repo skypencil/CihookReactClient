@@ -11,7 +11,7 @@ const FacebookButton = ({ handler }) => {
         <div
             className="rounded border border-primary d-flex justify-content-center"
             style={{
-                'background-color': backgroundColor,
+                backgroundColor: backgroundColor,
                 width: '400px',
                 height: '25px',
                 margin: '2px',

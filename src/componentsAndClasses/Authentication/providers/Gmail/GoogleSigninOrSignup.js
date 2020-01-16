@@ -11,7 +11,7 @@ const GoogleButton = ({ handler }) => {
         <div
             className="rounded border border-warning d-flex justify-content-around"
             style={{
-                'background-color': backgroundColor,
+                backgroundColor: backgroundColor,
                 width: '400px',
                 height: '25px',
                 margin: '2px',

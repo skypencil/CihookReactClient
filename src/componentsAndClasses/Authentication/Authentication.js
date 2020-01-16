@@ -19,7 +19,6 @@ const Authentication = ({ error, errorHandler }) => {
     };
 
     const errorMessageHandler = error => {
-        console.log('error at error message handler: ', error);
         if (
             error.hasError &&
             error.errorCode === 'auth/account-exists-with-different-credential'

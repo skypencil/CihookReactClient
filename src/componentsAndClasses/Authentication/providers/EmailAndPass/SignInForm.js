@@ -11,15 +11,13 @@ const SignInForm = () => {
     };
 
     const signInWithEmail = (email, password) => {
-        console.log('email: ', email);
-        console.log('password:', password);
         auth()
             .signInWithEmailAndPassword(email, password)
             .catch(function(error) {
-                // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                // ...
+                console.log('signinformErrorCode: ', errorCode);
+                console.log('signinformErrorMessage: ', errorMessage);
             });
     };
 

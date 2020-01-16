@@ -7,15 +7,14 @@ import Profile from '../Profile/Profile';
 import Authentication from '../Authentication/Authentication';
 import SignUpForm from '../SignUpForm/SignUpForm';
 
-import { getUser } from '../classes/network/networkCall';
 import User from '../classes/user/user';
-import { hasData } from '../classes/network/dataValidation';
 import { auth } from '../classes/firebase';
 
 const Welcome = () => {
     const store = useContext(AppContext);
 
     const hasDataHandler = json => {
+        console.log('ScreenHasDataHandler');
         let data = json;
         if (data === null) {
             return;
@@ -93,9 +92,10 @@ const Welcome = () => {
         callForUser();
 
         auth.onAuthStateChanged(userObject => {
+            console.log('useEffectScreen');
             hasDataHandler(userObject);
         });
-    }, []);
+    });
 
     return displayScreen();
 };
