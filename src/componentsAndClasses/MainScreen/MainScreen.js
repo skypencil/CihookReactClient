@@ -12,41 +12,11 @@ import { auth } from '../../lib/firebase/firebase';
 
 const Welcome = () => {
     const store = useContext(AppContext);
+    const newUser = new User({});
 
-    const hasDataHandler = json => {
-        console.log('ScreenHasDataHandler');
-        let data = json;
-        if (data === null) {
-            return;
-        } else {
-            let userObject = new User(
-                data.email,
-                data.uid,
-                data.displayName,
-                data.displayName,
-                data.photoURL
-            );
-
-            store.userObject.set(userObject);
-            store.userLoggedIn.set(userObject.isLoggedIn());
-            store.callsMade.set(store.callsMade.get + 1);
-        }
-    };
-
-    const callForUser = () => {
-        var user = auth.currentUser;
-
-        if (user) {
-            //if there is a user, the app will automatically publish the page. No need to do anything here.
-            console.log('here');
-        } else {
-            store.userLoggedIn.set(false);
-        }
-    };
-
-    const noDataHandler = () => {
-        store.userLoggedIn.set(false);
-    };
+    // const noDataHandler = () => {
+    //     store.userLoggedIn.set(false);
+    // };
 
     const errorHandler = error => {
         if (error.code === 'auth/account-exists-with-different-credential') {
@@ -65,8 +35,8 @@ const Welcome = () => {
         } else if (store.userLoggedIn.get === true) {
             return (
                 <Profile
-                    userObject={store.userObject.get}
-                    noDataHandler={noDataHandler}
+                    userObjectFromState={store.userObject.get}
+                    newUser={newUser}
                 />
             );
         } else if (store.userLoggedIn.get === false) {
@@ -89,13 +59,14 @@ const Welcome = () => {
     useEffect(() => {
         //onAuthStateChanged is triggered if there is a change in the status of auth. callForUser is a dumb function that does that.
 
-        callForUser();
+        newUser.callForUser(auth, store);
 
         auth.onAuthStateChanged(userObject => {
             console.log('useEffectScreen');
-            hasDataHandler(userObject);
+            console.log(newUser);
+            newUser.hasDataHandler(userObject, store);
         });
-    });
+    }, []);
 
     return displayScreen();
 };

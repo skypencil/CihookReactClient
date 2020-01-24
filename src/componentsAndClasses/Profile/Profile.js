@@ -1,19 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../../App';
 import firebase from '../../lib/firebase/firebase';
-
 const Profile = props => {
-    const { first_name, id, email, avatar } = props.userObject;
-    const logoutHanlder = () => {
-        firebase
-            .auth()
-            .signOut()
-            .then(function() {
-                props.noDataHandler();
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-    };
+    const store = useContext(AppContext);
+
+    const { first_name, id, email, avatar } = props.userObjectFromState;
 
     return (
         <div>
@@ -22,7 +13,16 @@ const Profile = props => {
             <p>Email : {email}</p>
             <img src={avatar} alt={first_name} />
             <p>
-                <button type="button" onClick={() => logoutHanlder()}>
+                <button
+                    type="button"
+                    onClick={() =>
+                        props.newUser.logoutHanlder(
+                            firebase,
+                            props.newUser,
+                            store
+                        )
+                    }
+                >
                     Log out
                 </button>
             </p>
