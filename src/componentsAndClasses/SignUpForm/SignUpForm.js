@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { auth } from '../classes/firebase';
+import { auth } from '../../lib/firebase/firebase';
 
 import { AppContext } from '../../App';
 

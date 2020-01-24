@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { auth } from '../../../classes/firebase';
+import { auth } from '../../../lib/firebase/firebase';
 
-import { AppContext } from '../../../../App';
+import { AppContext } from '../../../App';
 
 const SignInForm = () => {
     const store = useContext(AppContext);

@@ -1,7 +1,5 @@
 import React from 'react';
-// import { auth } from '../../../../classes/firebase';
-
-import SignInForm from '../EmailAndPass/SignInForm';
+import SignInForm from './SignInForm';
 
 const EmailAndPass = () => {
     return <SignInForm />;

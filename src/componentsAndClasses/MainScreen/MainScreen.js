@@ -7,8 +7,8 @@ import Profile from '../Profile/Profile';
 import Authentication from '../Authentication/Authentication';
 import SignUpForm from '../SignUpForm/SignUpForm';
 
-import User from '../classes/user/user';
-import { auth } from '../classes/firebase';
+import User from '../../lib/user/user';
+import { auth } from '../../lib/firebase/firebase';
 
 const Welcome = () => {
     const store = useContext(AppContext);

@@ -1,10 +1,10 @@
 import React from 'react';
-import { auth } from '../classes/firebase';
+import { auth } from '../../lib/firebase/firebase';
 
-import FacebookButton from './providers/Facebook/FacebookSigninOrSignup';
-import GoogleButton from './providers/Gmail/GoogleSigninOrSignup';
+import FacebookButton from '../AuthProviders/Facebook/FacebookSigninOrSignup';
+import GoogleButton from '../AuthProviders/Gmail/GoogleSigninOrSignup';
 
-import EmailAndPass from './providers/EmailAndPass/EmailAndPass.js';
+import EmailAndPass from '../AuthProviders/EmailAndPass/EmailAndPass.js';
 
 const Authentication = ({ error, errorHandler }) => {
     const loginWithProviderHandler = provider => {

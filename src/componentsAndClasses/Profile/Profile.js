@@ -1,5 +1,5 @@
 import React from 'react';
-import firebase from '../classes/firebase';
+import firebase from '../../lib/firebase/firebase';
 
 const Profile = props => {
     const { first_name, id, email, avatar } = props.userObject;

@@ -1,5 +1,5 @@
 import React, { useState, createContext } from 'react';
-import Screen from './componentsAndClasses/Screen/Screen';
+import Screen from './componentsAndClasses/MainScreen/MainScreen';
 import './App.css';
 
 export const AppContext = createContext({});
