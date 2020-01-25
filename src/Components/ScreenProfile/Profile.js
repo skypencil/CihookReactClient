@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../App';
+import { logoutHanlder } from '../../lib/user/firebaseUserAuthHandlers';
 import firebase from '../../lib/firebase/firebase';
+
 const Profile = props => {
     const store = useContext(AppContext);
 
@@ -15,13 +17,7 @@ const Profile = props => {
             <p>
                 <button
                     type="button"
-                    onClick={() =>
-                        props.newUser.logoutHanlder(
-                            firebase,
-                            props.newUser,
-                            store
-                        )
-                    }
+                    onClick={() => logoutHanlder(firebase, store)}
                 >
                     Log out
                 </button>

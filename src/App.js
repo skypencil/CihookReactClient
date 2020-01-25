@@ -1,5 +1,5 @@
 import React, { useState, createContext } from 'react';
-import Screen from './componentsAndClasses/MainScreen/MainScreen';
+import Canvas from './Components/Canvas/Canvas';
 import './App.css';
 
 export const AppContext = createContext({});
@@ -9,6 +9,7 @@ export const App = () => {
     const [userLoggedIn, setUserLoggedIn] = useState(null);
     const [callsMade, setCallsMade] = useState(0);
     const [error, setError] = useState({
+        errorType: null,
         hasError: null,
         errorCode: null,
         errorMessage: null,
@@ -24,7 +25,7 @@ export const App = () => {
     return (
         <div className="container-fluid d-flex justify-content-center align-items-center full-height">
             <AppContext.Provider value={store}>
-                <Screen />
+                <Canvas />
             </AppContext.Provider>
         </div>
     );

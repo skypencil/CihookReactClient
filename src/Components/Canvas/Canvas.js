@@ -3,20 +3,19 @@ import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../../App';
 
 import Waiting from '../Waiting/Waiting';
-import Profile from '../Profile/Profile';
-import Authentication from '../Authentication/Authentication';
-import SignUpForm from '../SignUpForm/SignUpForm';
+import Profile from '../ScreenProfile/Profile';
+import ScreenAuthentication from '../ScreenAuthentication/ScreenAuthentication';
+import SignUpForm from '../ScreenSignUpForm/SignUpForm';
 
-import User from '../../lib/user/user';
+import {
+    callForUser,
+    hasDataHandler,
+    errorHandler,
+} from '../../lib/user/firebaseUserAuthHandlers';
 import { auth } from '../../lib/firebase/firebase';
 
-const Welcome = () => {
+const Canvas = () => {
     const store = useContext(AppContext);
-    const newUser = new User({});
-
-    // const noDataHandler = () => {
-    //     store.userLoggedIn.set(false);
-    // };
 
     const errorHandler = error => {
         if (error.code === 'auth/account-exists-with-different-credential') {
@@ -33,19 +32,9 @@ const Welcome = () => {
         if (store.userLoggedIn.get === null) {
             return <Waiting />;
         } else if (store.userLoggedIn.get === true) {
-            return (
-                <Profile
-                    userObjectFromState={store.userObject.get}
-                    newUser={newUser}
-                />
-            );
+            return <Profile userObjectFromState={store.userObject.get} />;
         } else if (store.userLoggedIn.get === false) {
-            return (
-                <Authentication
-                    errorHandler={errorHandler}
-                    error={store.error.get}
-                />
-            );
+            return <ScreenAuthentication />;
         } else if (store.userLoggedIn.get === 'wantsEmailPassSignup') {
             return (
                 <SignUpForm
@@ -57,18 +46,17 @@ const Welcome = () => {
     };
 
     useEffect(() => {
-        //onAuthStateChanged is triggered if there is a change in the status of auth. callForUser is a dumb function that does that.
+        //onAuthStateChanged is triggered if there is a change in the status of auth. But, there is no such method provided by firebase SDK that allows us to check whether a user is logged in or not. so the only way to get this app going is to trigger a state change so that auth.onStateChanged() kicks in. newUser.callForUser(auth, store) is just a dumb function that only triggers a state change.
 
-        newUser.callForUser(auth, store);
+        callForUser(auth, store);
 
         auth.onAuthStateChanged(userObject => {
             console.log('useEffectScreen');
-            console.log(newUser);
-            newUser.hasDataHandler(userObject, store);
+            hasDataHandler(userObject, store);
         });
     }, []);
 
     return displayScreen();
 };
 
-export default Welcome;
+export default Canvas;

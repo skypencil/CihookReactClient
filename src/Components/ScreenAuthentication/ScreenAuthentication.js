@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { AppContext } from '../../App';
+
 import { auth } from '../../lib/firebase/firebase';
+
+import { errorHandler } from '../../lib/user/firebaseUserAuthHandlers';
 
 import FacebookButton from '../AuthProviders/Facebook/FacebookSigninOrSignup';
 import GoogleButton from '../AuthProviders/Gmail/GoogleSigninOrSignup';
+import EmailAndPass from '../AuthProviders/EmailAndPass/EmailAndPass';
 
-import EmailAndPass from '../AuthProviders/EmailAndPass/EmailAndPass.js';
+const Authentication = () => {
+    const store = useContext(AppContext);
+    const error = store.error.get;
 
-const Authentication = ({ error, errorHandler }) => {
     const loginWithProviderHandler = provider => {
         auth.signInWithPopup(provider)
             .then(() => {
@@ -14,7 +21,7 @@ const Authentication = ({ error, errorHandler }) => {
             })
             .catch(error => {
                 console.log(error);
-                errorHandler(error);
+                errorHandler(error, store);
             });
     };
 
