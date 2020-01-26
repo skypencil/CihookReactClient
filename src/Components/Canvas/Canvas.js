@@ -3,8 +3,8 @@ import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../../App';
 
 import CardProfile from '../CardProfile/CardProfile';
-import ScreenWaiting from '../ScreenWaiting/ScreenWaiting';
-import ScreenAuthentication from '../ScreenAuthentication/ScreenAuthentication';
+import ScreenWaiting from '../Screens/ScreenWaiting/ScreenWaiting';
+import ScreenAuthentication from '../Screens/ScreenAuthentication/ScreenAuthentication';
 import ScreenSignUpForm from '../ScreenSignUpForm/SignUpForm';
 
 import {

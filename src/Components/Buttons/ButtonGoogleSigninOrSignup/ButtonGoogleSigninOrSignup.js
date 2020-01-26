@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+
+import { AppContext } from '../../../App';
 
 import googleLoginIcon from '../../../staticAssets/googleLoginIcon.png';
 
 import { googleAuthProvider } from '../../../lib/firebase/firebase';
+import { loginWithProviderHandler } from '../../../lib/user/firebaseUserAuthHandlers';
 
-const GoogleButton = ({ handler }) => {
+const GoogleButton = () => {
+    const store = useContext(AppContext);
+
     const [backgroundColor, setBackgroundColor] = useState('#white');
 
     return (
@@ -19,7 +24,7 @@ const GoogleButton = ({ handler }) => {
             onMouseEnter={() => setBackgroundColor('#ffedcd')}
             onMouseOut={() => setBackgroundColor('white')}
             onClick={() => {
-                handler(googleAuthProvider);
+                loginWithProviderHandler(googleAuthProvider, store);
             }}
         >
             <div
