@@ -2,46 +2,29 @@ import React, { useContext, useEffect } from 'react';
 
 import { AppContext } from '../../App';
 
-import Waiting from '../Waiting/Waiting';
-import Profile from '../ScreenProfile/Profile';
+import CardProfile from '../CardProfile/CardProfile';
+import ScreenWaiting from '../ScreenWaiting/ScreenWaiting';
 import ScreenAuthentication from '../ScreenAuthentication/ScreenAuthentication';
-import SignUpForm from '../ScreenSignUpForm/SignUpForm';
+import ScreenSignUpForm from '../ScreenSignUpForm/SignUpForm';
 
 import {
     callForUser,
     hasDataHandler,
-    errorHandler,
 } from '../../lib/user/firebaseUserAuthHandlers';
 import { auth } from '../../lib/firebase/firebase';
 
 const Canvas = () => {
     const store = useContext(AppContext);
 
-    const errorHandler = error => {
-        if (error.code === 'auth/account-exists-with-different-credential') {
-            store.error.set({
-                hasError: true,
-                errorCode: error.code,
-                errorMessage: error.message,
-                errorEmail: error.email,
-            });
-        }
-    };
-
     const displayScreen = () => {
         if (store.userLoggedIn.get === null) {
-            return <Waiting />;
+            return <ScreenWaiting />;
         } else if (store.userLoggedIn.get === true) {
-            return <Profile userObjectFromState={store.userObject.get} />;
+            return <CardProfile />;
         } else if (store.userLoggedIn.get === false) {
             return <ScreenAuthentication />;
         } else if (store.userLoggedIn.get === 'wantsEmailPassSignup') {
-            return (
-                <SignUpForm
-                    errorHandler={errorHandler}
-                    error={store.error.get}
-                />
-            );
+            return <ScreenSignUpForm />;
         }
     };
 

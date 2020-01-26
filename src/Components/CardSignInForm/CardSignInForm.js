@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { auth } from '../../../lib/firebase/firebase';
+import { auth } from '../../lib/firebase/firebase';
 
-import { AppContext } from '../../../App';
+import { AppContext } from '../../App';
 
 const SignInForm = () => {
     const store = useContext(AppContext);
@@ -29,6 +29,7 @@ const SignInForm = () => {
             <form
                 style={{
                     width: '400px',
+                    marginTop: 10,
                 }}
             >
                 <div className="form-group">

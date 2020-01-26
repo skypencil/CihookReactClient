@@ -83,7 +83,7 @@ const SignUpForm = () => {
 
                 <button
                     type="button"
-                    class="btn btn-link"
+                    className="btn btn-link"
                     onClick={e => {
                         e.preventDefault();
                         redirectToAuthenticationPage();

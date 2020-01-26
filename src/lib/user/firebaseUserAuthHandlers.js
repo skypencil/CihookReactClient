@@ -1,4 +1,5 @@
 import User from './localUserObjectHandlers';
+import { auth } from '../firebase/firebase';
 
 export const callForUser = (authAPI, appState) => {
     var user = authAPI.currentUser;
@@ -66,4 +67,15 @@ export const errorHandler = (error, appState) => {
             errorEmail: error.email,
         });
     }
+};
+
+export const loginWithProviderHandler = (provider, appState) => {
+    auth.signInWithPopup(provider)
+        .then(() => {
+            console.log('user logged in with', provider.providerId);
+        })
+        .catch(error => {
+            console.log(error);
+            errorHandler(error, appState);
+        });
 };

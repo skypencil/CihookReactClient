@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+
+import { AppContext } from '../../../App';
 
 import facebookLoginIcon from '../../../staticAssets/facebookLoginIcon.png';
 
 import { facebookAuthProvider } from '../../../lib/firebase/firebase';
+import { loginWithProviderHandler } from '../../../lib/user/firebaseUserAuthHandlers';
 
-const FacebookButton = ({ handler }) => {
+const FacebookButton = () => {
+    const store = useContext(AppContext);
+
     const [backgroundColor, setBackgroundColor] = useState('#white');
 
     return (
@@ -19,7 +24,7 @@ const FacebookButton = ({ handler }) => {
             onMouseEnter={() => setBackgroundColor('#dfe3ee')}
             onMouseOut={() => setBackgroundColor('white')}
             onClick={() => {
-                handler(facebookAuthProvider);
+                loginWithProviderHandler(facebookAuthProvider, store);
             }}
         >
             <div
