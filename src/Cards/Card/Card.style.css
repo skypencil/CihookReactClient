@@ -1,0 +1,24 @@
+.Card {
+    order: 5;
+    background-color: rgb(255, 251, 242);
+}
+
+.Card {
+    max-width: 370px;
+    min-width: 370px;
+
+    max-height: 480px;
+    min-height: 480px;
+    margin: 5px;
+}
+
+.Card {
+    border-style: solid;
+    border-color: rgb(243, 238, 225);
+    border-width: 1px;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}

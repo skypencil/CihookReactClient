@@ -1,11 +1,11 @@
 import React from 'react';
-import Sample from './Sample'
+import Cards from './Cards/Cards.component.jsx';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Sample/>      
+    <div className="App Parent">
+      <Cards />
     </div>
   );
 }
