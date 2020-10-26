@@ -30,11 +30,11 @@ class Cards extends Component {
         return (
             <div className="CardsContainer">
                 <Card data = {this.state.cards}/>
-                {/* <Card data = {this.state.cards}/>
                 <Card data = {this.state.cards}/>
                 <Card data = {this.state.cards}/>
                 <Card data = {this.state.cards}/>
-                <Card data = {this.state.cards}/> */}
+                <Card data = {this.state.cards}/>
+                <Card data = {this.state.cards}/>
             </div>
         )
     }

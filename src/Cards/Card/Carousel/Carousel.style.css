@@ -40,22 +40,19 @@
     height: auto;
 }
 
-#goLeft {
+.CarouselBtnContainer {
     position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    width: 5%;
-    height: 80%;
-    background: none;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 368px;
+    border: 1px solid yellow;
+}
+
+#goLeft {
+    
 }
 
 #goRight {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    width: 5%;
-    height: 80%;
-    background: none;
+    
 }

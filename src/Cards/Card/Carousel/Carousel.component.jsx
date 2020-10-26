@@ -25,8 +25,12 @@ const Carousel = ({pictures}) => {
                            </div>
                 })
             }
-            <button id="goLeft" onClick={goLeft}>left</button>
-            <button id="goRight"onClick={goRight}>right</button>
+
+            <div className="CarouselBtnContainer">
+                <button id="goLeft" onClick={goLeft}>left</button>
+                <button id= "goRight" onClick={goRight}>right</button>
+            </div>
+            
         </div>
     )
 }
