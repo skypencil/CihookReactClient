@@ -9,7 +9,6 @@
 
     max-height: 300px;
     min-height: 300px;
-    margin: 0px;
 }
 
 .Carousel {
@@ -19,4 +18,44 @@
 
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.Slide {
+    position: relative;
+    border: 1px solid blue;
+    min-width: 100%;
+    transition: .5s;
+    overflow: hidden;
+}
+
+.CarouselImage {
+    width: 100%;
+    height: auto;
+}
+
+#goLeft {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 5%;
+    height: 80%;
+    background: none;
+}
+
+#goRight {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 5%;
+    height: 80%;
+    background: none;
 }

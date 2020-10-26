@@ -9,6 +9,7 @@ class Cards extends Component {
             cards: [
                 {
                     id: "",
+                    promoted: false,
                     pictures: [
                         "https://img.grouponcdn.com/deal/2BBXLF7yBXmfg1yAUSmqPWzSLd3X/2B-700x420/v1/c700x420.webp",
                         "https://img.grouponcdn.com/deal/2t6yWyaptMY7Bk1NtLzCTqSCx2rn/2t-2048x1228/v1/c700x420.webp", "https://img.grouponcdn.com/deal/2sStdo1ChKbMX3omRs9SVM9wcVbD/2s-1400x840/v1/c700x420.webp",
@@ -28,14 +29,12 @@ class Cards extends Component {
     render() { 
         return (
             <div className="CardsContainer">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card/>
+                <Card data = {this.state.cards}/>
+                {/* <Card data = {this.state.cards}/>
+                <Card data = {this.state.cards}/>
+                <Card data = {this.state.cards}/>
+                <Card data = {this.state.cards}/>
+                <Card data = {this.state.cards}/> */}
             </div>
         )
     }

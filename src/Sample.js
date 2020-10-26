@@ -10,14 +10,19 @@ class Sample extends Component {
     }
 
     componentDidMount(){
-        UserCalls.getUsers.then(usersJson => this.setState({users: usersJson})).catch(e => console.log(e));
+        UserCalls.getUsers().then(usersFromApi => this.setState({users : usersFromApi}));
     }
 
     render(){
         return(
             <div id="user-list">
+                {console.log(this.state.users)}
+
                 {this.state.users.map(userObj => 
-                    <h1 key={"user-" + userObj.name} id={"user-" + userObj.name}>{userObj.name}</h1>
+                        userObj.name ? 
+                        <h1 key={"user-" + userObj.name} id={"user-" + userObj.name}>{userObj.name}</h1>
+                        : 
+                        <h1 key={"user-" + userObj.userError} className={"errorMessageLarge"}>{userObj.userError}</h1>
                 )}
             </div>
         )
