@@ -1,0 +1,22 @@
+.Carousel {
+    order: 5;
+    background-color: rgb(255, 251, 242);
+}
+
+.Carousel {
+    max-width: 370px;
+    min-width: 370px;
+
+    max-height: 300px;
+    min-height: 300px;
+    margin: 0px;
+}
+
+.Carousel {
+    border-style: solid;
+    border-color: rgb(218, 217, 215);
+    border-width: 1px;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
