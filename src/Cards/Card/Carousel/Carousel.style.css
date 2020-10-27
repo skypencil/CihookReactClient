@@ -1,26 +1,23 @@
-.Carousel {
-    order: 5;
-    background-color: rgb(255, 251, 242);
-}
+
 
 .Carousel {
     max-width: 370px;
     min-width: 370px;
 
-    max-height: 300px;
-    min-height: 300px;
+    max-height: 225px;
+    min-height: 225px;
 }
 
 .Carousel {
     border-style: solid;
-    border-color: rgb(218, 217, 215);
-    border-width: 1px;
+    position: relative;
 
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 
     margin: 0px;
     padding: 0px;
+    border: 0px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -28,8 +25,8 @@
 }
 
 .Slide {
-    position: relative;
-    border: 1px solid blue;
+    border: 0px;
+    top: 0px;
     min-width: 100%;
     transition: .5s;
     overflow: hidden;

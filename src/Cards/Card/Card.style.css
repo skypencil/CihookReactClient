@@ -1,6 +1,5 @@
 .Card {
-    order: 5;
-    background-color: rgb(255, 251, 242);
+    background-color: rgb(46, 42, 36);
 }
 
 .Card {
@@ -14,8 +13,8 @@
 
 .Card {
     border-style: solid;
-    border-color: rgb(243, 238, 225);
-    border-width: 1px;
+    border-width: 0px;
+    box-shadow: 1px 2px 5px #111110;
 
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
