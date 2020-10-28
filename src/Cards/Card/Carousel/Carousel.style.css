@@ -37,34 +37,3 @@
     height: auto;
 }
 
-.CarouselBtnContainer {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 368px;
-}
-
-#goLeft {
-    border: none;
-    background: none;
-    width: 10px;
-    height:20px;
-    margin-left: 5px;
-}
-
-#goLeft:hover {
-    opacity: 0.5;
-}
-
-#goRight {
-    border: none;
-    background: none;
-    width: 10px;
-    height:20px;
-    margin-right: 5px;
-}
-
-#goRight:hover {
-    opacity: 0.5;
-}

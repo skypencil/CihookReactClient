@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './Carousel.style.css'
+import CarouselButtons from "./CarouselButtons/CarouselButtons.component.jsx";
 
 /**
  * @function Carousel
@@ -7,14 +8,6 @@ import './Carousel.style.css'
 
 const Carousel = ({pictures}) => { 
     const [x, setX] = useState(0);
-
-    const goLeft = () => {
-        x === 0 ? setX(-100 * (pictures.length - 1)) : setX(x + 100);
-    }
-
-    const goRight = () => {
-        x === -100 * (pictures.length -1) ? setX(0) : setX(x - 100);
-    }
 
     return (
         <div className="Carousel">
@@ -26,10 +19,7 @@ const Carousel = ({pictures}) => {
                 })
             }
 
-            <div className="CarouselBtnContainer">
-                <img id="goLeft" src={require("./graphics/0.5x/BackBtn.png")} onClick={goLeft}/>
-                <img id= "goRight" src={require("./graphics/0.5x/ForwardBtn.png")} onClick={goRight}/>
-            </div>
+            <CarouselButtons x = {x} setX = {setX} numOfPictures = {pictures.length}/>
             
         </div>
     )
