@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+    viewBox="0 0 176.25 151.02">
+    <defs>
+        <style>.cls-1,.cls-2{
+            fill:rgb(209, 208, 206);
+            stroke:rgb(209, 208, 206);
+            stroke-width:11.25px;
+            }.cls-1{
+                stroke-linejoin:bevel;
+            }.cls-2{
+                stroke-miterlimit:10;
+            }
+        </style>
+    </defs>
+
+    <title>Heart</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Ñëîé_1" data-name="Ñëîé 1">
+            <path class="cls-1" d="M170.63,46.88A41.25,41.25,0,0,0,129.38,5.63c-17.49,0-35.25,10.88-41.25,26.25-6-15.37-23.77-26.25-41.25-26.25A41.24,41.24,0,0,0,5.63,46.88"/>
+            <path class="cls-2" d="M5.63,46.88c0,36.56,44.53,73.59,82.5,97.5,38-23.91,82.5-60.94,82.5-97.5"/>
+        </g>
+    </g>
+</svg>

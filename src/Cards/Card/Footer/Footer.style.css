@@ -1,0 +1,99 @@
+#footerComponent {
+    margin-top: 0px;
+    padding: 0px; 
+    height: 63px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+}
+
+#topCommentDiv{
+    border-bottom-left-radius: 15px;
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#topComment {
+    color: rgb(209, 208, 206);
+    margin-top: 0;
+    margin-left: 10px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: left;
+    font-size: 12px;
+}
+
+#userName {
+    font-style: normal;
+    font-weight: 600;
+}
+
+#userName {
+    color: rgb(151, 151, 150);
+    text-decoration: none;
+}
+
+#userName:visited {
+    color: rgb(151, 151, 150);
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+#userName:hover {
+    color: rgb(110, 110, 109);
+    text-decoration: none;
+}
+
+#moreLink {
+    color: rgb(151, 151, 150);
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+#moreLink:visited {
+    color: rgb(151, 151, 150);
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+#moreLink:hover {
+    color: rgb(110, 110, 109);
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+#otherCardsDiv{
+    background-color: rgb(126, 124, 119);
+    box-shadow: inset 0 10px 2px -7px #000000;
+    border-bottom-right-radius: 15px;
+    width: 30%;
+    display: flex;
+}
+
+#nextCardButton{
+    background-color: rgb(54, 53, 51);
+    box-shadow: 3px 2px 2px #111110;
+    border-bottom-right-radius: 15px;
+    width: 55%;
+}
+
+#shadowCard {
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0px 10px 2px -7px #000000;
+    border-bottom-right-radius: 15px;
+}
+
+#nestedShadowCard {
+    
+    width: 20%;
+    height: 100%;
+    background-color: rgb(54, 53, 51);
+    box-shadow: 3px 2px 2px #111110;
+    border-bottom-right-radius: 15px;
+}
+
+#userCardButton{
+    border-bottom-right-radius: 15px;
+    width: 40%;
+}

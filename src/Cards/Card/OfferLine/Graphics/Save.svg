@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 146.25 179.28">
+<defs>
+    <style>
+    .save-svg{
+        fill:none;
+        stroke:rgb(209, 208, 206);
+        stroke-linecap:square;
+        stroke-miterlimit:10;
+        stroke-width:11.25px;
+    }
+    </style>
+</defs>
+<title>Save</title>
+    <g id="save-layer-2" data-name="save-layer-2">
+        <g id="save-nested-1" data-name="save-nested-1">
+            <polygon class="save-svg" points="5.63 5.63 5.63 170.63 73.13 140.63 140.63 170.63 140.63 5.63 5.63 5.63"/>
+        </g>
+    </g>
+</svg>

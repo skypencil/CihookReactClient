@@ -1,0 +1,42 @@
+.InteractionBar {
+    margin: 0;
+    padding: 0;
+}
+
+.ActionsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 2px;
+}
+
+.InteractionIcons {
+    width: 20px;
+    height: auto;
+    margin-right: 10px;
+}
+
+#actionsOnLeft{
+    width: 150px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-content: flex-start;
+}
+
+#actionsOnRight{
+    width: 150px;
+    height: 12px;
+    margin-top: 4px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#heartCount {
+    color: rgb(209, 208, 206);
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 9px;
+    height: 10px;
+}

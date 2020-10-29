@@ -1,0 +1,39 @@
+.OfferLineBar {
+    
+}
+
+.OfferLineItemsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0px;
+    margin: 0px;
+    height: 28px;
+}
+
+#saveButton {
+    margin: 0px;
+}
+
+#offerLineTextContainer{
+    padding: 0px;
+    margin-top: 4px;
+}
+
+#offerLineText {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Quicksand', sans-serif;
+    display: swap;
+    color: rgb(209, 208, 206);
+    font-weight: 400;
+}
+
+
+#horizontalRule {
+    border: 0;
+    height: 1px;
+    margin-top: 4px;
+    background: rgb(61, 61, 61);
+    width: 90%;
+}

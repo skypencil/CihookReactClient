@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176.25 184.2">
+<defs>
+    <style>
+        .cls-1{
+            fill:none;
+            stroke:#fff;
+            stroke-linecap:square;
+            stroke-miterlimit:10;
+            stroke-width:11.25px;
+        }
+    </style>
+</defs>
+<title>Comment</title>
+    <g id="Comment_Layer_2" data-name="Comment_Layer_2_Data">
+        <g id="Comment_Nested" data-name="Comment_Layer2_Nested">
+        <path class="cls-1" d="M35.63,125.63a30,30,0,0,1-30-30v-60a30,30,0,0,1,30-30h105a30,30,0,0,1,30,30v60a30,30,0,0,1-30,30h-60l-45,45Z"/>
+        </g>
+    </g>
+</svg>

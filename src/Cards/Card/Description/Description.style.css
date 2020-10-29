@@ -1,0 +1,25 @@
+#descriptionContainer {
+    padding: 0px;
+    margin: 0px;
+    height: 115px;
+}
+
+#descriptionDiv {
+    margin-left: 25px;
+    margin-right: 25px;
+    text-align: left;
+    line-height: 18px;
+}
+
+#descriptionP {
+    color: rgb(209, 208, 206);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    display: swap;
+    border: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0px;
+}

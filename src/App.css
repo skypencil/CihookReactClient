@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: rgb(31, 31, 29);
+  font-family: 'Hind Siliguri', sans-serif;
 }
 
 .App-logo {
