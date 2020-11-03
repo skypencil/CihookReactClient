@@ -9,6 +9,7 @@ import CarouselButtons from "./CarouselButtons/CarouselButtons.component.jsx";
 const Carousel = ({pictures}) => { 
     const [x, setX] = useState(0);
 
+
     return (
         <div className="Carousel">
             {
@@ -20,7 +21,7 @@ const Carousel = ({pictures}) => {
             }
 
             <CarouselButtons x = {x} setX = {setX} numOfPictures = {pictures.length}/>
-            
+           
         </div>
     )
 }

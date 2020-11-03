@@ -24,7 +24,7 @@ class Sample extends Component {
                         : 
                         <h1 key={"user-" + userObj.userError} className={"errorMessageLarge"}>{userObj.userError}</h1>
                 )}
-            </div>
+            </div> 
         )
     }
 }
